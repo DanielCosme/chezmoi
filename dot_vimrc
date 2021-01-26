@@ -3,7 +3,7 @@ syntax enable
 
 let mapleader = "\<Space>" " Set space as leader
 
-set clipboard=unnamed
+set clipboard=unnamedplus
 set expandtab " insert spaces when tab is pressed
 set tabstop=2 softtabstop=2 " number of spaces inserted when tab key pressed
 set shiftwidth=2 " number of spaces inserted by < & > indent motions
@@ -29,10 +29,7 @@ set undofile
 
 " Highlight search toggle
 set hlsearch
-nnoremap <F3> :set hlsearch!<CR> " toggle
 nnoremap <leader>\ :nohlsearch<CR> " Disable until next search
-
-set path=./** " set path recursively to current dir
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=black
@@ -51,7 +48,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/goyo.vim'
 Plug 'kaicataldo/material.vim'
-Plug 'sainnhe/gruvbox-material'
 Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
@@ -76,33 +72,18 @@ let g:javascript_plugin_flow = 1 " js better color formating
 let g:goyo_linenr = 1
 
 " ----- COLORS & THEMES -----
-if exists('+termguicolors')
-  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
 set termguicolors
   
 set background=dark " light
-" Gruvbox Material
-let g:gruvbox_material_background = 'medium' " soft, hard, medium
-let g:gruvbox_material_enable_bold = 1
-let g:gruvbox_material_enable_italic = 1
-let g:gruvbox_material_visual = 'green brackground'
-let g:gruvbox_material_menu_selection_background = 'green'
-let g:gruvbox_material_diagnostic_line_highlight = 1
 
 " Material
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'palenight'
 
 set background=dark
-" colorscheme gruvbox-material " gruvbox-material
 colorscheme material
 
-" let g:airline_theme = 'material'
-
-command! MakeTags !ctags -r " make source code tags
+let g:airline_theme = 'material'
 
 " Display all matching files when we tab complete in command mode
 set wildmenu 
@@ -110,8 +91,6 @@ set wildmode=list:full
 set wildcharm=<C-Z>
 "
 " --- Buffer switching ---
-nnoremap <F10> :b <C-Z> 
-nnoremap <Leader>ll :ls<CR> 
 nmap <leader>0 :bd <CR> 
 
 nnoremap <C-J> :bp <CR> 
@@ -136,5 +115,3 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-:inoremap ii <C-c>
