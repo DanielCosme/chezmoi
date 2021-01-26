@@ -3,7 +3,8 @@ syntax enable
 
 let mapleader = "\<Space>" " Set space as leader
 
-set clipboard=unnamedplus
+set clipboard=unnamedplus " for x11
+"set clipboard=unnamed " for win 10
 set expandtab " insert spaces when tab is pressed
 set tabstop=2 softtabstop=2 " number of spaces inserted when tab key pressed
 set shiftwidth=2 " number of spaces inserted by < & > indent motions
