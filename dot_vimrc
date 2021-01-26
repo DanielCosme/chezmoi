@@ -1,0 +1,140 @@
+set nocompatible " no vi compatible syntax
+syntax enable
+
+let mapleader = "\<Space>" " Set space as leader
+
+set clipboard=unnamed
+set expandtab " insert spaces when tab is pressed
+set tabstop=2 softtabstop=2 " number of spaces inserted when tab key pressed
+set shiftwidth=2 " number of spaces inserted by < & > indent motions
+set smartindent " try to indent
+set number " number lines
+set relativenumber " relative number lines
+set incsearch " incremental search
+set cursorline " highlight current line
+set lazyredraw    " redraw only when we need to.
+set scrolloff=5 " show lines above and below cursor (when possible)
+set timeout timeoutlen=1000 ttimeoutlen=100 " fix slow O inserts
+set hidden " allow buffer to be hiden if modified
+set splitbelow
+set noswapfile
+set nobackup
+set splitright
+" smart case sensitive search
+set smartcase
+set ignorecase
+" undo persist
+set undodir=~/.vim/undodir
+set undofile
+
+" Highlight search toggle
+set hlsearch
+nnoremap <F3> :set hlsearch!<CR> " toggle
+nnoremap <leader>\ :nohlsearch<CR> " Disable until next search
+
+set path=./** " set path recursively to current dir
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=black
+
+filetype indent on " load filetype-specific indent files
+
+" ----- PLUGINS -----
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/goyo.vim'
+Plug 'kaicataldo/material.vim'
+Plug 'sainnhe/gruvbox-material'
+Plug 'preservim/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
+" -- Plugin Options ---
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '►'
+let g:NERDTreeDirArrowCollapsible = '▼'
+let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize=38
+
+let g:airline_powerline_fonts = 1 " populate powerline symbols to arline
+let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
+let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
+let g:javascript_plugin_jsdoc = 1 " js better color formating
+let g:javascript_plugin_ngdoc = 1 " js better color formating
+let g:javascript_plugin_flow = 1 " js better color formating
+let g:goyo_linenr = 1
+
+" ----- COLORS & THEMES -----
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+set termguicolors
+  
+set background=dark " light
+" Gruvbox Material
+let g:gruvbox_material_background = 'medium' " soft, hard, medium
+let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_enable_italic = 1
+let g:gruvbox_material_visual = 'green brackground'
+let g:gruvbox_material_menu_selection_background = 'green'
+let g:gruvbox_material_diagnostic_line_highlight = 1
+
+" Material
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'palenight'
+
+set background=dark
+" colorscheme gruvbox-material " gruvbox-material
+colorscheme material
+
+" let g:airline_theme = 'material'
+
+command! MakeTags !ctags -r " make source code tags
+
+" Display all matching files when we tab complete in command mode
+set wildmenu 
+set wildmode=list:full
+set wildcharm=<C-Z>
+"
+" --- Buffer switching ---
+nnoremap <F10> :b <C-Z> 
+nnoremap <Leader>ll :ls<CR> 
+nmap <leader>0 :bd <CR> 
+
+nnoremap <C-J> :bp <CR> 
+nnoremap <C-K> :bn <CR> 
+nnoremap <C-H> <C-W>:vertical resize +5 <CR> 
+nnoremap <C-L> <C-W>:vertical resize -5 <CR>
+
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR> 
+nnoremap <leader>lcd :lcd %:p:h<CR>:pwd<CR> 
+noremap <leader>f <C-W>w 
+nnoremap <leader>z :Goyo <CR>
+
+map ; :
+
+function! s:goyo_enter()
+
+endfunction
+
+function! s:goyo_leave()
+
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+:inoremap ii <C-c>
