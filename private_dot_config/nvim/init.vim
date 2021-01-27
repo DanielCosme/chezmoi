@@ -45,6 +45,7 @@ set colorcolumn=80
 
 "set signcolumn=number
 set signcolumn=yes
+set shell=sh
 
 highlight ColorColumn ctermbg=black
 
@@ -62,10 +63,12 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
+let g:NERDTreeGitStatusUseNerdFonts = 1
 " -- Plugin Options ---
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '►'
@@ -109,6 +112,8 @@ let g:fzf_action = {
 
 let g:coc_global_extensions = [
   \ 'coc-json',
+  \ 'coc-prettier',
+  \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-pairs',
   \  'coc-git',]
@@ -144,7 +149,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Use <c-space> to trigger completion.
 
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <leader>9 coc#refresh()
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -154,6 +159,18 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 
 " --- Buffer switching ---
