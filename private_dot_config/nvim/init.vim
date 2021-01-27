@@ -149,7 +149,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Use <c-space> to trigger completion.
 
-inoremap <silent><expr> <leader>9 coc#refresh()
+"inoremap <silent><expr> <leader>9 coc#refresh()
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
