@@ -1,6 +1,7 @@
 map ; :
 let mapleader = "\<Space>" " Set space as leader
 
+set filetype=on
 set clipboard=unnamedplus " for x11
 "set clipboard=unnamed " for win 10
 set expandtab " insert spaces when tab is pressed
@@ -65,6 +66,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
+Plug 'https://github.com/davisdude/vim-love-docs'
 
 call plug#end()
 
@@ -116,6 +118,7 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-pairs',
+  \ 'coc-html',
   \  'coc-git',]
 
 " Symbol renaming.
@@ -202,3 +205,6 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+autocmd Filetype lua setlocal ts=2 sw=2 expandtab
+autocmd Filetype python setlocal ts=2 sw=2 expandtab
