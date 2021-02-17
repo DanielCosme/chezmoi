@@ -5,8 +5,11 @@ set filetype=on
 set clipboard=unnamedplus " for x11
 "set clipboard=unnamed " for win 10
 set expandtab " insert spaces when tab is pressed
-set tabstop=2 softtabstop=2 " number of spaces inserted when tab key pressed
-set shiftwidth=2 " number of spaces inserted by < & > indent motions
+set tabstop=4 softtabstop=4 " number of spaces inserted when tab key pressed
+set shiftwidth=4 " number of spaces inserted by < & > indent motions
+
+autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 
+
 set smartindent " try to indent
 set number
 set relativenumber " relative number lines
