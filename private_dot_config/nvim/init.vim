@@ -70,6 +70,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'https://github.com/davisdude/vim-love-docs'
+Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
+Plug 'arcticicestudio/nord-vim'
+Plug 'sainnhe/forest-night'
+Plug 'sainnhe/gruvbox-material'
 
 call plug#end()
 
@@ -100,12 +104,18 @@ endif
 set background=dark " light
 
 " Material theme
+let g:forest_night_enable_italic = 1
+let g:forest_night_disable_italic_comment = 1
+
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'palenight'
+colorscheme nord
 colorscheme material
-" highlight Normal guibg=none
+colorscheme forest-night
 
-let g:airline_theme = 'material'
+" highlight Normal guibg=none
+" let g:airline_theme = 'material'
+let g:airline_theme = 'forest_night'
 
 
 " FZF & COC
@@ -209,5 +219,3 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-autocmd Filetype lua setlocal ts=2 sw=2 expandtab
-autocmd Filetype python setlocal ts=2 sw=2 expandtab
