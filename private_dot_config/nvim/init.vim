@@ -60,25 +60,30 @@ filetype indent on " load filetype-specific indent files
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/goyo.vim'
 Plug 'kaicataldo/material.vim'
-Plug 'preservim/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'vim-airline/vim-airline'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'
-Plug 'https://github.com/davisdude/vim-love-docs'
-Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
 Plug 'arcticicestudio/nord-vim'
 Plug 'sainnhe/forest-night'
 Plug 'sainnhe/gruvbox-material'
 
+Plug 'b4b4r07/vim-sqlfmt' " sql formater
+Plug 'junegunn/goyo.vim'  " zen mode
+Plug 'preservim/nerdtree'  
+Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzy finder
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocompletion engine
+Plug 'Xuyuanp/nerdtree-git-plugin' 
+Plug 'ryanoasis/vim-devicons'
+Plug 'sheerun/vim-polyglot'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()
 
-let g:NERDTreeGitStatusUseNerdFonts = 1
+" --- SQL parser plugin options ---
+let g:sqlfmt_command = "sqlformat"
+let g:sqlfmt_options = "-r -k upper"
+let g:sqlfmt_auto = 1
 " -- Plugin Options ---
+let g:NERDTreeGitStatusUseNerdFonts = 1
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
@@ -105,20 +110,20 @@ set background=dark " light
 
 " Material theme
 let g:forest_night_enable_italic = 1
-let g:forest_night_disable_italic_comment = 1
 
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'palenight'
-colorscheme nord
-colorscheme material
+" colorscheme nord
+" colorscheme material
 colorscheme forest-night
 
 " highlight Normal guibg=none
 " let g:airline_theme = 'material'
-let g:airline_theme = 'forest_night'
+" let g:airline_theme = 'forest_night'
 
 
 " FZF & COC
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-o': 'e',
@@ -132,6 +137,7 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-pairs',
   \ 'coc-html',
+  \ 'coc-go',
   \  'coc-git',]
 
 " Symbol renaming.
