@@ -7,8 +7,10 @@ set clipboard=unnamedplus " for x11
 set expandtab " insert spaces when tab is pressed
 set tabstop=4 softtabstop=4 " number of spaces inserted when tab key pressed
 set shiftwidth=4 " number of spaces inserted by < & > indent motions
+set autoread
 
-autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 
+autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 set smartindent " try to indent
 set number
@@ -41,7 +43,7 @@ set hlsearch
 nnoremap <leader>\ :nohlsearch<CR> " Disable until next search
 
 " Display all matching files when we tab complete in command mode
-set wildmenu 
+set wildmenu
 set wildmode=list:full
 set wildcharm=<C-Z>
 
@@ -64,19 +66,33 @@ Plug 'kaicataldo/material.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'sainnhe/forest-night'
 Plug 'sainnhe/gruvbox-material'
+Plug 'overcache/NeoSolarized'
 
 Plug 'b4b4r07/vim-sqlfmt' " sql formater
 Plug 'junegunn/goyo.vim'  " zen mode
-Plug 'preservim/nerdtree'  
+Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzy finder
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocompletion engine
-Plug 'Xuyuanp/nerdtree-git-plugin' 
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
+
+" --- go options
+
+let g:go_highlight_fields = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
 
 " --- SQL parser plugin options ---
 let g:sqlfmt_command = "sqlformat"
@@ -102,10 +118,6 @@ let g:goyo_linenr = 1
 
 " ----- COLORS & THEMES -----
 set termguicolors
-if (has('nvim'))
-  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-endif
-  
 set background=dark " light
 
 " Material theme
@@ -113,13 +125,18 @@ let g:forest_night_enable_italic = 1
 
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'palenight'
+
+let g:neosolarized_bold = 1
+let g:neosolarized_underline = 1
+let g:neosolarized_italic = 1
+let g:neosolarized_termBoldAsBright = 0
 " colorscheme nord
-" colorscheme material
-colorscheme forest-night
+colorscheme material
+" colorscheme forest-night
+" colorscheme NeoSolarized
 
 " highlight Normal guibg=none
 " let g:airline_theme = 'material'
-" let g:airline_theme = 'forest_night'
 
 
 " FZF & COC
@@ -196,25 +213,23 @@ endfunction
 
 
 " --- Buffer switching ---
-nnoremap <leader>0 :bd <CR> 
-nnoremap <leader>s :<C-u>FZF<CR> 
+nnoremap <leader>0 :bd <CR>
+nnoremap <leader>s :<C-u>FZF<CR>
 
- 
-
-nnoremap <C-J> :bp <CR> 
-nnoremap <C-K> :bn <CR> 
-nnoremap <C-H> <C-W>:vertical resize +5 <CR> 
+nnoremap <C-J> :bp <CR>
+nnoremap <C-K> :bn <CR>
+nnoremap <C-H> <C-W>:vertical resize +5 <CR>
 nnoremap <C-L> <C-W>:vertical resize -5 <CR>
 
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR> 
-nnoremap <leader>lcd :lcd %:p:h<CR>:pwd<CR> 
-noremap <leader>f <C-W>w 
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>lcd :lcd %:p:h<CR>:pwd<CR>
+noremap <leader>f <C-W>w
 nnoremap <leader>z :Goyo <CR>
 
 
 function! s:goyo_enter()
   set nonu
-  set nornu  
+  set nornu
 endfunction
 
 function! s:goyo_leave()
