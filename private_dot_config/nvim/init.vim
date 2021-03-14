@@ -149,7 +149,6 @@ let g:fzf_action = {
 
 let g:coc_global_extensions = [
   \ 'coc-json',
-  \ 'coc-prettier',
   \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-pairs',
@@ -218,8 +217,6 @@ nnoremap <leader>s :<C-u>FZF<CR>
 
 nnoremap <C-J> :bp <CR>
 nnoremap <C-K> :bn <CR>
-nnoremap <C-H> <C-W>:vertical resize +5 <CR>
-nnoremap <C-L> <C-W>:vertical resize -5 <CR>
 
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <leader>lcd :lcd %:p:h<CR>:pwd<CR>
