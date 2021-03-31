@@ -9,6 +9,8 @@ fish_vi_key_bindings
 fish_user_key_bindings
 
 set -gx EDITOR nvim
+set -gx BROWSER firefox
+set -gx TERMINAL alacritty
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx GOPATH $HOME/go
 

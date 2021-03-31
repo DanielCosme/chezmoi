@@ -68,16 +68,14 @@ Plug 'sainnhe/forest-night'
 Plug 'sainnhe/gruvbox-material'
 Plug 'overcache/NeoSolarized'
 
-Plug 'b4b4r07/vim-sqlfmt' " sql formater
+Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'  " zen mode
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzy finder
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocompletion engine
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
-Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
@@ -94,10 +92,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
 
-" --- SQL parser plugin options ---
-let g:sqlfmt_command = "sqlformat"
-let g:sqlfmt_options = "-r -k upper"
-let g:sqlfmt_auto = 1
 " -- Plugin Options ---
 let g:NERDTreeGitStatusUseNerdFonts = 1
 map <C-n> :NERDTreeToggle<CR>
@@ -111,9 +105,6 @@ let g:NERDTreeWinSize=38
 let g:airline_powerline_fonts = 1 " populate powerline symbols to arline
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
 let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
-let g:javascript_plugin_jsdoc = 1 " js better color formating
-let g:javascript_plugin_ngdoc = 1 " js better color formating
-let g:javascript_plugin_flow = 1 " js better color formating
 let g:goyo_linenr = 1
 
 " ----- COLORS & THEMES -----
@@ -131,8 +122,8 @@ let g:neosolarized_underline = 1
 let g:neosolarized_italic = 1
 let g:neosolarized_termBoldAsBright = 0
 " colorscheme nord
-colorscheme material
-" colorscheme forest-night
+" colorscheme material
+colorscheme forest-night
 " colorscheme NeoSolarized
 
 " highlight Normal guibg=none
