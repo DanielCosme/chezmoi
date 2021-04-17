@@ -13,4 +13,5 @@ set -gx BROWSER firefox
 set -gx TERMINAL alacritty
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx GOPATH $HOME/go
-
+set -gx GOBIN $HOME/go/bin
+set -gx GODOCC_STYLE dracula

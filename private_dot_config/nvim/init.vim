@@ -72,6 +72,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'  " zen mode
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzy finder
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocompletion engine
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -108,6 +109,7 @@ let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 let g:goyo_linenr = 1
 
 " ----- COLORS & THEMES -----
+let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 set termguicolors
 set background=dark " light
 
@@ -117,18 +119,25 @@ let g:forest_night_enable_italic = 1
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'palenight'
 
+let g:neosolarized_contrast = "normal"
+let g:neosolarized_visibility = "normal"
+
+" I make vertSplitBar a transparent background color. If you like the origin
+" solarized vertSplitBar style more, set this value to 0.
+let g:neosolarized_vertSplitBgTrans = 1
 let g:neosolarized_bold = 1
 let g:neosolarized_underline = 1
-let g:neosolarized_italic = 1
+let g:neosolarized_italics = 1
 let g:neosolarized_termBoldAsBright = 0
 " colorscheme nord
 " colorscheme material
-colorscheme forest-night
-" colorscheme NeoSolarized
+" colorscheme forest-night
+colorscheme NeoSolarized
 
 " highlight Normal guibg=none
 " let g:airline_theme = 'material'
-
+let g:airline_theme = 'solarized'
+let g:airline_solarized_bg= 'dark'
 
 " FZF & COC
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
