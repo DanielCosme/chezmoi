@@ -15,3 +15,4 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx GOPATH $HOME/go
 set -gx GOBIN $HOME/go/bin
 set -gx GODOCC_STYLE dracula
+set -gx GO111MODULE on
