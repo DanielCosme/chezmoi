@@ -139,11 +139,11 @@ let g:neosolarized_termBoldAsBright = 0
 " colorscheme nord
 " colorscheme material
 " colorscheme everforest
-" colorscheme edge
+colorscheme edge
 
-colorscheme NeoSolarized
-let g:airline_theme = 'solarized'
-let g:airline_solarized_bg= 'dark'
+" colorscheme NeoSolarized
+" let g:airline_theme = 'solarized'
+" let g:airline_solarized_bg= 'dark'
 
 " highlight Normal guibg=none
 " let g:airline_theme = 'material'
