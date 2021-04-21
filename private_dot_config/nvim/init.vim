@@ -62,13 +62,15 @@ filetype indent on " load filetype-specific indent files
 call plug#begin('~/.vim/plugged')
 
 " Color Schemes
+Plug 'overcache/NeoSolarized'
 Plug 'kaicataldo/material.vim'
 Plug 'arcticicestudio/nord-vim'
 "Plug 'sainnhe/forest-night'
 "Plug 'sainnhe/gruvbox-material'
 Plug 'sainnhe/edge'
 Plug 'sainnhe/everforest'
-Plug 'overcache/NeoSolarized'
+Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/sonokai'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'  " zen mode
@@ -120,22 +122,33 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 set termguicolors
 set background=dark " light
 
-" Material theme
-let g:forest_night_enable_italic = 1
-
-let g:material_terminal_italics = 1
-let g:material_theme_style = 'palenight'
-
 let g:neosolarized_contrast = "normal"
 let g:neosolarized_visibility = "normal"
-
-" I make vertSplitBar a transparent background color. If you like the origin
-" solarized vertSplitBar style more, set this value to 0.
 let g:neosolarized_vertSplitBgTrans = 1
 let g:neosolarized_bold = 1
 let g:neosolarized_underline = 1
 let g:neosolarized_italics = 1
 let g:neosolarized_termBoldAsBright = 0
+
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'palenight'
+
+let g:edge_style = 'default' " 'neon' 'aura' 'default' 'dark'
+let g:edge_enable_italic = 1
+
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'hard'
+let g:everforest_enable_italic = 1
+
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:gruvbox_material_background = 'soft'
+let g:gruvbox_material_enable_italic = 1
+
+
+" Available values: `'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`
+let g:sonokai_style = 'default'
+let g:sonokai_enable_italic = 1
+
 " colorscheme nord
 " colorscheme material
 " colorscheme everforest
