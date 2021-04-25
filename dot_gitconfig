@@ -2,7 +2,7 @@
 	email = cosmedaniel8@gmail.com
 	name = Daniel Cosme
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [credential "https://github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential

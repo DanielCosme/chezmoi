@@ -85,8 +85,9 @@ Plug 'kabouzeid/nvim-lspinstall'
 Plug 'nvim-lua/completion-nvim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'norcalli/snippets.nvim'
-Plug 'rstacruz/vim-closer'
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -116,6 +117,7 @@ let g:airline_powerline_fonts = 1 " populate powerline symbols to arline
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
 let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 let g:goyo_linenr = 1
+let g:goyo_width = 90
 
 " ----- COLORS & THEMES -----
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
@@ -200,7 +202,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
 let g:completion_enable_auto_popup = 1
-let g:completion_trigger_keyword_length = 3
+let g:completion_trigger_keyword_length = 2
 let g:completion_sorting = "alphabet"
 
 "map <c-p> to manually trigger completion
