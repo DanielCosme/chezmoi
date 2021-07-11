@@ -143,7 +143,7 @@ let g:everforest_background = 'hard'
 let g:everforest_enable_italic = 1
 
 " Available values: 'hard', 'medium'(default), 'soft'
-let g:gruvbox_material_background = 'soft'
+let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_enable_italic = 1
 
 
