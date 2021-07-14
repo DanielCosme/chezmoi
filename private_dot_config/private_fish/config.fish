@@ -15,6 +15,7 @@ set -gx BROWSER firefox
 set -gx TERMINAL alacritty
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx PAGER most
+set -gx SSH_TTY dummy # to show hostname on remote machines
 
 # Golang
 set -gx GOPATH $HOME/go
@@ -58,10 +59,10 @@ alias ls='exa --color=always --group-directories-first --icons' # preferred list
 alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
 alias ll='exa -l --color=always --group-directories-first --icons'  # long format
 alias lla='exa -la --color=always --group-directories-first --icons'  # long format
-alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+abbr -a lt exa -aT --color=always --group-directories-first --icons --level $argv # tree listing
 alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
 
-alias cat='bat --style header --style rules --style snip --style changes --style header'
+alias bat='bat --style header --style rules --style snip --style changes --style header'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'

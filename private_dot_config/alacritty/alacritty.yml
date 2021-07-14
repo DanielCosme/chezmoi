@@ -68,6 +68,8 @@ mouse:
 #    blue:    '0x9cc4ff'
 #    magenta: '0xe1acff'
 #    cyan:    '0xa3f7ff'
+
+# Colors (Base16 Default Dark)
 colors:
   # Default colors
   primary:
@@ -99,4 +101,4 @@ colors:
     blue:    '0x7cafc2'
     magenta: '0xba8baf'
     cyan:    '0x86c1b9'
-    white:   '0xf8f8f8'    
+    white:   '0xf8f8f8'
