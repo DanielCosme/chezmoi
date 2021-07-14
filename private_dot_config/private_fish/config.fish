@@ -31,6 +31,7 @@ set -gx PATH $PATH $NPM_PACKAGES/bin
 set -gx MANPATH $NPM_PACKAGES/share/man $MANPATH  
 
 ## Useful aliases
+alias vi='nvim'
 # Git
 alias glog='git log --all --graph --decorate --oneline'
 alias gb='git branch -vv'
