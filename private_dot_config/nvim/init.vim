@@ -71,6 +71,7 @@ Plug 'sainnhe/edge'
 Plug 'sainnhe/everforest'
 Plug 'sainnhe/gruvbox-material'
 Plug 'sainnhe/sonokai'
+Plug 'ap/vim-css-color'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'  " zen mode
