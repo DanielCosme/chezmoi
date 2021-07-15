@@ -154,7 +154,7 @@ let g:sonokai_enable_italic = 1
 " colorscheme nord
 " colorscheme material
 " colorscheme everforest
-colorscheme edge
+colorscheme gruvbox-material
 
 " colorscheme NeoSolarized
 " let g:airline_theme = 'solarized'
