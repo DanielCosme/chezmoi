@@ -1,0 +1,116 @@
+" plugins ref https://github.com/JetBrains/ideavim/wiki/Emulated-plugins
+" reference https://gist.github.com/dewaka/ef947e52767bf453eaf77c852051eb7e
+"" Source your .vimrc
+source ~/.vimrc
+let mapleader=" "
+
+" Copy to system clipboard as well
+set clipboard+=unnamed
+"""""" Plugins ------------------------
+set NERDTree
+set surround
+
+"""""""" Map IDE actions to IdeaVim ---
+nmap <leader>q :action CloseContent<cr>
+nmap <leader>Q :action ReopenClosedTab<cr>
+
+nmap <C-O> :action Back<cr>
+nmap <C-I> :action Forward<cr>
+nmap <leader>rc :action RecentLocations<cr>
+nmap <leader>gd :action GotoDeclaration<cr>
+nmap <leader>gi :action GotoImplementation<cr>
+nmap <leader>gt :action GotoTest<cr>
+" go to references
+nmap <leader>gr :action FindUsages<cr>
+" search by file
+nmap <leader>sf :action GotoFile<cr>  
+" search type
+nmap <leader>st :action GotoClass<cr>
+" search symbol
+nmap <leader>ss :action GotoSymbol<cr>
+" search actions
+nmap <leader>sa :action GotoAction<cr>
+
+" nmap <leader>fs :action FileStructurePopup<cr>
+nmap <leader>fs :action ActivateStructureToolWindow<cr>
+nmap <leader>e :action ShowErrorDescription<cr>
+nmap <leader>lb :action ShowBookmarks<cr>
+nmap <leader>b :action Bookmarks<cr>
+
+nmap <leader>a :action Switcher<cr>
+" nmap <leader>a :action RecentChangedFiles<cr>
+" TO THINK ABOUT
+" nmap <leader>mu :action MoveLineUp<cr>
+" nmap <leader>md :action MoveLineDown<cr>
+map <leader>d :action Debug<cr>
+
+
+" Refactorings
+vmap T :action Refactorings.QuickListPopupAction<cr>
+nmap <leader>rn :action RenameElement<cr>
+nmap <leader>rg :action Generate<cr>
+nmap <leader>rI :action OptimizeImports<cr>
+" Inspection
+nmap <leader>rC :action InspectCode<cr>
+" Terminal
+nmap <leader>T :action ActivateTerminalToolWindow<cr>                          
+xnoremap <leader>' :action CommentByLineComment<cr>
+" VCS operations --------------------------------------
+" nmap <leader>yy :action Vcs.Show.Local.Changes<cr>                          
+" nmap <leader>yp :action Vcs.QuickListPopupAction<cr>
+" nmap <leader>ya :action Annotate<cr>
+" nmap <leader>yl :action Vcs.Show.Log<cr>
+" nmap <leader>yd :action Compare.LastVersion<cr>
+" nmap <leader>yr :action Git.ResolveConflicts<cr>   
+
+nnoremap [<space> O<esc>j
+nnoremap ]<space> o<esc>k
+nnoremap [o :action PreviousOccurence<cr>
+nnoremap ]o :action NextOccurence<cr>
+nnoremap [m :action MethodUp<cr>
+nnoremap ]m :action MethodDown<cr>
+nnoremap [c :action VcsShowPrevChangeMarker<cr>
+nnoremap ]c :action VcsShowNextChangeMarker<cr>
+nmap [d :action GotoNextError<cr>
+nmap ]d :action GotoPreviousError<cr>
+
+" Moving lines
+nmap [e :action MoveLineUp<cr>
+nmap ]e :action MoveLineDown<cr>
+" Moving statements
+nmap [s :action MoveStatementUp<cr>
+nmap ]s :action MoveStatementDown<cr>
+nmap <leader>z :action ToggleDistractionFreeMode<cr>
+nmap <leader>Z :action ToggleZenMode<cr>
+nmap ,b :action ToggleLineBreakpoint<cr>
+
+"""""" Plugin settings ----------------
+nnoremap <C-N> :NERDTree <CR> 
+
+" key bindings for quickly moving between windows
+" h left, l right, k up, j down
+nmap <leader>h <c-w>h
+nmap <leader>l <c-w>l
+nmap <leader>k <c-w>k
+nmap <leader>j <c-w>j
+
+""" Idea specific settings ------------------
+set ideajoin " Use Idea to join lines smartly
+
+
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+" Building, Running and Debugging
+" nmap ,c :action CompileDirty<cr>
+" nmap ,r :action Run<cr>
+" nmap ,R :action RunAnything<cr>
+" nmap ,b :action Debug<cr>
+" nmap ,c :action RunClass<cr>
+" nmap ,d :action DebugClass<cr>
+" nmap ,t :action RerunTests<cr>                                         
+" nmap ,T :action RerunFailedTests<cr>
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
