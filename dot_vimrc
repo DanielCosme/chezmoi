@@ -6,8 +6,8 @@ let mapleader = "\<Space>" " Set space as leader
 set clipboard=unnamedplus " for x11
 "set clipboard=unnamed " for win 10
 set expandtab " insert spaces when tab is pressed
-set tabstop=2 softtabstop=2 " number of spaces inserted when tab key pressed
-set shiftwidth=2 " number of spaces inserted by < & > indent motions
+set tabstop=4 softtabstop=4 " number of spaces inserted when tab key pressed
+set shiftwidth=4 " number of spaces inserted by < & > indent motions
 set smartindent " try to indent
 set number " number lines
 set relativenumber " relative number lines
@@ -30,9 +30,8 @@ set undofile
 
 " Highlight search toggle
 set hlsearch
-nnoremap <leader>\ :nohlsearch<CR> " Disable until next search
 
-set colorcolumn=80
+set colorcolumn=90
 highlight ColorColumn ctermbg=black
 
 filetype indent on " load filetype-specific indent files
@@ -42,16 +41,11 @@ set wildmenu
 set wildmode=list:full
 set wildcharm=<C-Z>
 
-nmap <leader>0 :bd <CR> 
+map ; :
 
 nnoremap <C-J> :bp <CR> 
 nnoremap <C-K> :bn <CR> 
-nnoremap <C-H> <C-W>:vertical resize +5 <CR> 
-nnoremap <C-L> <C-W>:vertical resize -5 <CR>
 
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR> 
-nnoremap <leader>lcd :lcd %:p:h<CR>:pwd<CR> 
 noremap <leader>f <C-W>w 
-
-map ; :
+nnoremap <leader>\ :nohlsearch<CR> " Disable until next search
 
