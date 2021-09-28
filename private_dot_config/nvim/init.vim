@@ -10,7 +10,7 @@ set shiftwidth=4 " number of spaces inserted by < & > indent motions
 set autoread
 
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType typescript setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
 set smartindent " try to indent.
 set number
