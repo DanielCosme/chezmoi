@@ -1,5 +1,5 @@
 configuration {
-/*	modi: "window,run,ssh";*/
+/*	modi: "windowcd,window,run,ssh,drun";*/
 	font: "mono 16";
 /*	location: 0;*/
 /*	yoffset: 0;*/
@@ -13,8 +13,8 @@ configuration {
 /*	run-list-command: "";*/
 /*	run-shell-command: "{terminal} -e {cmd}";*/
 /*	window-command: "wmctrl -i -R {window}";*/
-/*	window-match-fields: "all";*/
-/*	icon-theme: ;*/
+	window-match-fields: "class";
+	icon-theme: "Flat-Remix-Green-Dark";
 /*	drun-match-fields: "name,generic,exec,categories,keywords";*/
 /*	drun-categories: ;*/
 /*	drun-show-actions: false;*/
@@ -22,7 +22,7 @@ configuration {
 /*	drun-url-launcher: "xdg-open";*/
 /*	disable-history: false;*/
 /*	ignored-prefixes: "";*/
-/*	sort: false;*/
+	sort: true;
 /*	sorting-method: "normal";*/
 /*	case-sensitive: false;*/
 /*	cycle: true;*/
@@ -32,7 +32,7 @@ configuration {
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
-/*	combi-modi: "window,run";*/
+	combi-modi: "windowcd";
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
