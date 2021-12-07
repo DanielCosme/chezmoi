@@ -1,5 +1,9 @@
 " plugins ref https://github.com/JetBrains/ideavim/wiki/Emulated-plugins
+"
 " reference https://gist.github.com/dewaka/ef947e52767bf453eaf77c852051eb7e
+"
+" https://towardsdatascience.com/the-essential-ideavim-remaps-291d4cd3971b
+"
 "" Source your .vimrc
 source ~/.vimrc
 let mapleader=" "
@@ -9,40 +13,49 @@ set clipboard+=unnamed
 """""" Plugins ------------------------
 set NERDTree
 set surround
+set number
+set norelativenumber
 
 """""""" Map IDE actions to IdeaVim ---
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+
+nnoremap <c-j> :action PreviousTab<CR>
+nnoremap <c-k> :action NextTab<CR>
+
 nmap <leader>q :action CloseContent<cr>
 nmap <leader>Q :action ReopenClosedTab<cr>
 
 nmap <C-O> :action Back<cr>
 nmap <C-I> :action Forward<cr>
-nmap <leader>rc :action RecentLocations<cr>
+nmap <leader>rl :action RecentLocations<cr>
 nmap <leader>gd :action GotoDeclaration<cr>
 nmap <leader>gi :action GotoImplementation<cr>
 nmap <leader>gt :action GotoTest<cr>
 " go to references
 nmap <leader>gr :action FindUsages<cr>
 " search by file
-nmap <leader>sf :action GotoFile<cr>  
+nmap <leader>f :action GotoFile<cr>  
 " search type
-nmap <leader>st :action GotoClass<cr>
+nmap <leader>t :action GotoClass<cr>
 " search symbol
-nmap <leader>ss :action GotoSymbol<cr>
+nmap <leader>s :action GotoSymbol<cr>
 " search actions
-nmap <leader>sa :action GotoAction<cr>
+nmap <leader>a :action GotoAction<cr>
 
 " nmap <leader>fs :action FileStructurePopup<cr>
-nmap <leader>fs :action ActivateStructureToolWindow<cr>
+" nmap <leader>fs :action ActivateStructureToolWindow<cr>
 nmap <leader>e :action ShowErrorDescription<cr>
 nmap <leader>lb :action ShowBookmarks<cr>
 nmap <leader>b :action Bookmarks<cr>
 
-nmap <leader>a :action Switcher<cr>
+" nmap <leader>a :action Switcher<cr>
 " nmap <leader>a :action RecentChangedFiles<cr>
 " TO THINK ABOUT
 " nmap <leader>mu :action MoveLineUp<cr>
 " nmap <leader>md :action MoveLineDown<cr>
 map <leader>d :action Debug<cr>
+map <leader>r :action Run<cr>
 
 
 " Refactorings

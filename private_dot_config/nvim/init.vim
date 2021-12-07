@@ -14,11 +14,12 @@ autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 set smartindent " try to indent.
 set number
-set relativenumber " relative number lines.
+" set relativenumber " relative number lines.
 set incsearch " incremental search.
 set cursorline " highlight current line.
 set lazyredraw    " redraw only when we need to.
 set scrolloff=8 " show lines above and below cursor (when possible).
+set sidescrolloff=8
 set timeout timeoutlen=1000 ttimeoutlen=100 " fix slow O inserts.
 set hidden " allow buffer to be hiden if modified.
 set splitright
@@ -61,6 +62,8 @@ filetype indent on " load filetype-specific indent files
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'fladson/vim-kitty'
+
 " Color Schemes
 Plug 'overcache/NeoSolarized'
 Plug 'kaicataldo/material.vim'
@@ -82,9 +85,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzy finder
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-lua/completion-nvim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'norcalli/snippets.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
@@ -232,7 +235,7 @@ inoremap <c-h> <cmd>lua return require'snippets'.advance_snippet(-1)<CR>
 autocmd BufEnter * lua require'completion'.on_attach()
 lua << EOF
 
-local nvim_lsp = require('lspconfig')
+local nvim_lsp = require('nvim-lsp-installer')
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end

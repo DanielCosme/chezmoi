@@ -22,7 +22,7 @@ set -gx GOPATH $HOME/go
 set -gx GOBIN $HOME/go/bin
 set -gx PATH $PATH $GOBIN
 set -gx GODOCC_STYLE dracula
-set -gx GO111MODULE auto
+set -gx GO111MODULE on
 set -gx DOCKER_BUILDKIT 1
 
 # node/npm
@@ -48,6 +48,7 @@ abbr -a gd  git diff
 abbr -a gds git diff --staged
 abbr -a gfc git findcommit
 abbr -a gfm git findmessage
+abbr -a gst git stash
 
 
 abbr -a chcd chezmoi cd
