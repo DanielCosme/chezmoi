@@ -50,6 +50,7 @@ abbr -a gfc git findcommit
 abbr -a gfm git findmessage
 abbr -a gst git stash
 
+# alias ruby='/usr/local/opt/ruby/bin/ruby'
 
 abbr -a chcd chezmoi cd
 abbr -a chapply chezmoi -v apply
