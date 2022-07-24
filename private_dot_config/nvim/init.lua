@@ -17,6 +17,7 @@ local lsp_defaults = {
     ),
     -- Callback function that will be executed when a language server is attached to a buffer.
     on_attach = function(client, bufnr)
+        print("hello lsp")
         vim.api.nvim_exec_autocmds('User', {pattern = 'LspAttached'})
     end
 }
@@ -50,7 +51,9 @@ vim.api.nvim_create_autocmd('User', {
     bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>') -- Show diagnostics in a floating window
     bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>') -- Move to the previous diagnostic
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>') -- Move to the next diagnostic
+    bufmap('n', '<leader>e', '<cmd>lua vim.diagnostic.setloclist()<cr>') -- Show diagnostics in a floating window
     bufmap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>') -- Renames all references to the symbol under the cursor
+    bufmap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<cr>') -- Renames all references to the symbol under the cursor
 
 
     -- Selects a code action available at the current cursor position
@@ -60,8 +63,9 @@ vim.api.nvim_create_autocmd('User', {
 })
 
 lspconfig.gopls.setup({
-    on_attach = function(client, bufnr)
-        lspconfig.util.default_config.on_attach(client, bufnr)
-    end
+    -- If I want to override defaults
+    -- on_attach = function(client, bufnr)
+    --     lspconfig.util.default_config.on_attach(client, bufnr)
+    -- end
 })
 

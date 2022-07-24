@@ -8,9 +8,9 @@ nnoremap("<leader>\\", ":nohlsearch<CR>")
 
 -- Buffers
 nnoremap("<leader>q", ":bd <CR>")   -- Close buffer
-nnoremap("<leader>f", "<C-W>w")     -- Change buffer
 nnoremap("<C-J>", ":bp <CR>")       -- Previous buffer
 nnoremap("<C-K>", ":bn <CR>")       -- Next buffer
+--nnoremap("<leader>f", "<C-W>w")     -- Change buffer
 -- nnoremap("<leader>", "")            -- 
 
 -- TODO search by file, symbol, type/object, search all strings
