@@ -30,7 +30,6 @@ set.splitright = true
 set.swapfile = false
 set.backup = false
 -- undo persist
-set.undodir = "~/.vim/undodir"
 set.undofile = true
 -- smart case sensitive search
 set.smartcase = true

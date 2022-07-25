@@ -110,8 +110,6 @@ nmap <leader>j <c-w>j
 """ Idea specific settings ------------------
 set ideajoin " Use Idea to join lines smartly
 
-
-
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
 

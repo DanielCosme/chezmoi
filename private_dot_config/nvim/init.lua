@@ -42,18 +42,18 @@ vim.api.nvim_create_autocmd('User', {
     -- LSP key bindings
     bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>') -- Displays hover information about the symbol under the cursor
     bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>') -- Jump to the definition
-    bufmap('n', '<C-]>', '<cmd>lua vim.lsp.buf.definition()<cr>') -- Jump to the definition
+    -- bufmap('n', '<C-]>', '<cmd>lua vim.lsp.buf.definition()<cr>') -- Jump to the definition
     bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>') -- Jump to declaration
-    bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>') -- Lists all the implementations for the symbol under the cursor
-    bufmap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<cr>') -- Jumps to the definition of the type symbol
-    bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>') -- Lists all the references 
+    -- bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>') -- Lists all the implementations for the symbol under the cursor
+    -- bufmap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<cr>') -- Jumps to the definition of the type symbol
+    -- bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>') -- Lists all the references 
     bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>') -- Displays a function's signature information
     bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>') -- Show diagnostics in a floating window
     bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>') -- Move to the previous diagnostic
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>') -- Move to the next diagnostic
     bufmap('n', '<leader>e', '<cmd>lua vim.diagnostic.setloclist()<cr>') -- Show diagnostics in a floating window
     bufmap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>') -- Renames all references to the symbol under the cursor
-    bufmap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<cr>') -- Renames all references to the symbol under the cursor
+    bufmap('n', '<leader>ff', '<cmd>lua vim.lsp.buf.formatting()<cr>') -- Renames all references to the symbol under the cursor
 
 
     -- Selects a code action available at the current cursor position
@@ -114,22 +114,23 @@ cmp.setup({
         {name = 'luasnip', keyword_length = 2}, -- shows available snippets and expands them if they are chosen
     },
     window = {
+        -- completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered()
     },
     formatting = {
-        fields = {'menu', 'abbr', 'kind'}
-    },
-    format = function(entry, item)
-        local menu_icon = {
-            nvim_lsp = 'λ',
-            luasnip = '⋗',
-            buffer = 'Ω',
-            path = '🖫',
-        }
+        fields = {'menu', 'abbr', 'kind'},
+        format = function(entry, item)
+            local menu_icon = {
+                nvim_lsp = 'λ',
+                luasnip = '⋗',
+                buffer = 'Ω',
+                path = '🖫',
+            }
 
-        item.menu = menu_icon[entry.source.name]
-        return item
-    end,
+            item.menu = menu_icon[entry.source.name]
+            return item
+        end
+    },
     mapping = {
         ['<CR>'] = cmp.mapping.confirm({select = true}),
         ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
