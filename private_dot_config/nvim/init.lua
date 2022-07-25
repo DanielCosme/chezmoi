@@ -109,7 +109,7 @@ cmp.setup({
     },
     sources = {
         {name = 'path'}, -- autocomplete paths
-        {name = 'nvim_lsp', keyword_length = 3}, -- shows suggestions based on the language server response
+        {name = 'nvim_lsp', keyword_length = 2}, -- shows suggestions based on the language server response
         {name = 'buffer', keyword_length = 3}, -- suggests words found in the current buffer
         {name = 'luasnip', keyword_length = 2}, -- shows available snippets and expands them if they are chosen
     },

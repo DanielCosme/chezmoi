@@ -14,6 +14,7 @@ set -gx EDITOR nvim
 set -gx BROWSER firefox
 set -gx TERMINAL alacritty
 set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_USER_CONFIG_DIR $XDG_CONFIG_HOME
 # set -gx XDG_DATA_HOME $HOME/.local
 set -gx PAGER most
 set -gx SSH_TTY dummy # to show hostname on remote machines

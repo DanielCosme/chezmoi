@@ -9,7 +9,7 @@ source ~/.vimrc
 let mapleader=" "
 
 " Copy to system clipboard as well
-set clipboard+=unnamed
+" set clipboard+=unnamed
 """""" Plugins ------------------------
 set NERDTree
 set surround
@@ -109,6 +109,7 @@ nmap <leader>j <c-w>j
 
 """ Idea specific settings ------------------
 set ideajoin " Use Idea to join lines smartly
+set clipboard+=ideaput
 
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
