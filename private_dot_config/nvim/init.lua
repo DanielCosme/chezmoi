@@ -48,12 +48,12 @@ vim.api.nvim_create_autocmd('User', {
     -- bufmap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<cr>') -- Jumps to the definition of the type symbol
     -- bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>') -- Lists all the references 
     bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>') -- Displays a function's signature information
-    bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>') -- Show diagnostics in a floating window
+    bufmap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<cr>') -- Show diagnostics in a floating window
     bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>') -- Move to the previous diagnostic
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>') -- Move to the next diagnostic
-    bufmap('n', '<leader>e', '<cmd>lua vim.diagnostic.setloclist()<cr>') -- Show diagnostics in a floating window
+    bufmap('n', '<leader>ge', '<cmd>lua vim.diagnostic.setloclist()<cr>') -- Show diagnostics list in a buffer?
     bufmap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>') -- Renames all references to the symbol under the cursor
-    bufmap('n', '<leader>ff', '<cmd>lua vim.lsp.buf.formatting()<cr>') -- Renames all references to the symbol under the cursor
+    bufmap('n', '<leader>gf', '<cmd>lua vim.lsp.buf.formatting()<cr>') -- Renames all references to the symbol under the cursor
 
 
     -- Selects a code action available at the current cursor position
@@ -62,12 +62,18 @@ vim.api.nvim_create_autocmd('User', {
     end
 })
 
+-- LSP language servers config
+-- Go
 lspconfig.gopls.setup({
     -- If I want to override defaults
     -- on_attach = function(client, bufnr)
     --     lspconfig.util.default_config.on_attach(client, bufnr)
     -- end
 })
+-- JS && TS
+lspconfig.tsserver.setup{}
+-- Rust
+lspconfig.rls.setup{}
 
 -- Diagnostics
 vim.diagnostic.config({
@@ -179,4 +185,12 @@ cmp.setup({
 
     }
 })
+
+-- To insert `(` after select function or method item on nvim-cmp
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp = require('cmp')
+cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+)
 

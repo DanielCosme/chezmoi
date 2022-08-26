@@ -1,9 +1,9 @@
 local nnoremap = require("danicosme.keymap").nnoremap
 
-nnoremap("<leader>s", "<cmd>Telescope find_files<cr>")
-nnoremap("<leader>fa", "<cmd>Telescope live_grep<cr>")
-nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
-nnoremap("<leader>fc","<cmd>Telescope commands<cr>")
+nnoremap("<leader>f", "<cmd>Telescope find_files<cr>")
+nnoremap("<leader>sa", "<cmd>Telescope live_grep<cr>")
+nnoremap("<leader>sb", "<cmd>Telescope buffers<cr>")
+nnoremap("<leader>sc","<cmd>Telescope commands<cr>")
 
 nnoremap("gr", "<cmd>Telescope lsp_references<cr>")
 nnoremap("gi", "<cmd>Telescope lsp_implementations<cr>")
