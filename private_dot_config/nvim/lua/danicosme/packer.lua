@@ -24,6 +24,7 @@ return require('packer').startup(function()
     }
     -- Colors
 	use 'folke/tokyonight.nvim'
+    use 'ellisonleao/gruvbox.nvim'
     -- Finder
     use {'nvim-treesitter/nvim-treesitter', 
         run = ':TSUpdate'
