@@ -25,6 +25,10 @@ return require('packer').startup(function()
     -- Colors
 	use 'folke/tokyonight.nvim'
     use 'ellisonleao/gruvbox.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use "EdenEast/nightfox.nvim"
+    use { 'Everblush/everblush.nvim', as = 'everblush' }
+    use 'navarasu/onedark.nvim'
     -- Finder
     use {'nvim-treesitter/nvim-treesitter', 
         run = ':TSUpdate'
@@ -44,6 +48,13 @@ return require('packer').startup(function()
         'kyazdani42/nvim-web-devicons', -- optional, for file icons
       },
       tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    }
+    -- Git
+    use 'lewis6991/gitsigns.nvim'
+    -- Status line
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 end)
 

@@ -6,7 +6,7 @@ let.mapleader = " " -- set space as leader
 
 -- Options
 set.filetype = "on"
-set.clipboard = "unnamedplus" -- for x11
+set.clipboard = "unnamedplus" -- for x11 needs xclip installed
 -- set.clipboard=unnamed " for win 10
 set.expandtab = true -- insert spaces when tab is pressed
 set.tabstop = 4 -- number of spaces inserted when tab key pressed
@@ -48,3 +48,4 @@ set.wildmode = "list:full"
 set.signcolumn = "yes"
 set.shell = "sh"
 set.wrap = true
+set.termguicolors = true

@@ -42,12 +42,12 @@ vim.api.nvim_create_autocmd('User', {
     -- LSP key bindings
     bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>') -- Displays hover information about the symbol under the cursor
     bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>') -- Jump to the definition
-    -- bufmap('n', '<C-]>', '<cmd>lua vim.lsp.buf.definition()<cr>') -- Jump to the definition
+   -- bufmap('n', '<C-]>', '<cmd>lua vim.lsp.buf.definition()<cr>') -- Jump to the definition
     bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>') -- Jump to declaration
     -- bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>') -- Lists all the implementations for the symbol under the cursor
     -- bufmap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<cr>') -- Jumps to the definition of the type symbol
     -- bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>') -- Lists all the references 
-    bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>') -- Displays a function's signature information
+    -- bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>') -- Displays a function's signature information
     bufmap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<cr>') -- Show diagnostics in a floating window
     bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>') -- Move to the previous diagnostic
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>') -- Move to the next diagnostic
@@ -115,8 +115,8 @@ cmp.setup({
     },
     sources = {
         {name = 'path'}, -- autocomplete paths
-        {name = 'nvim_lsp', keyword_length = 2}, -- shows suggestions based on the language server response
-        {name = 'buffer', keyword_length = 3}, -- suggests words found in the current buffer
+        {name = 'nvim_lsp', keyword_length = 1}, -- shows suggestions based on the language server response
+        {name = 'buffer', keyword_length = 2}, -- suggests words found in the current buffer
         {name = 'luasnip', keyword_length = 2}, -- shows available snippets and expands them if they are chosen
     },
     window = {
@@ -182,7 +182,6 @@ cmp.setup({
             fallback()
           end
         end, {'i', 's'}),
-
     }
 })
 
@@ -193,4 +192,51 @@ cmp.event:on(
     'confirm_done',
     cmp_autopairs.on_confirm_done()
 )
+
+-- Status line
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {{'filename', path = 1}},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  winbar = {},
+  tabline = {
+      lualine_a = {'buffers'},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {'tabs'}
+  },
+  inactive_winbar = {},
+  extensions = {}
+}
 
