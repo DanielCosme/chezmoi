@@ -7,7 +7,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function()
-  -- Packer can manage itself
+    -- Packer can manage itself
 	use 'wbthomason/packer.nvim'
     -- Lsp & autocomplete
     use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
@@ -58,5 +58,7 @@ return require('packer').startup(function()
     }
     -- Context
     use 'nvim-treesitter/nvim-treesitter-context'
+    -- Go tooling
+    use 'fatih/vim-go'
 end)
 

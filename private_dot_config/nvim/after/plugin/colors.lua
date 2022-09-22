@@ -1,5 +1,5 @@
 -- Tokyo Night
-vim.g.tokyonight_style = "storm"
+vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 -- Capppuccin
@@ -18,4 +18,5 @@ require('onedark').setup {
 
 -- Color
 -- vim.cmd("colorscheme everblush")
-vim.cmd("colorscheme nordfox") -- nightfox, carbonfox, terafox, nordfox, duskfox, dawnfox, dayfox
+-- vim.cmd("colorscheme nordfox") -- nightfox, carbonfox, terafox, nordfox, duskfox, dawnfox, dayfox
+vim.cmd("colorscheme carbonfox") -- nightfox, carbonfox, terafox, nordfox, duskfox, dawnfox, dayfox

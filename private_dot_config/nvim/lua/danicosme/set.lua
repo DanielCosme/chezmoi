@@ -12,7 +12,8 @@ set.expandtab = true -- insert spaces when tab is pressed
 set.tabstop = 4 -- number of spaces inserted when tab key pressed
 set.softtabstop = 4 -- number of spaces inserted when tab key pressed
 set.shiftwidth = 4 -- number of spaces inserted by < & > indent motions
-set.autoread = true-- detect changes when  other programs read the file and reaload
+set.autoread = true -- detect changes when  other programs read the file and reaload
+set.autowrite = true
 set.smartindent = true -- try to indent
 set.number = true
 set.relativenumber = false
@@ -49,3 +50,7 @@ set.signcolumn = "yes"
 set.shell = "sh"
 set.wrap = true
 set.termguicolors = true
+
+-- GUI options
+-- set.guifont="JetBrainsMono Nerd Font"
+-- set.guifont = { "JetBrainsMono Nerd Font, Source Code Pro", ":h12" }
