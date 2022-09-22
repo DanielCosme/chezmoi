@@ -2,7 +2,14 @@
 
 vim.g.gui_font_default_size = 11
 vim.g.gui_font_size = vim.g.gui_font_default_size
-vim.g.gui_font_face = "Noto Kufi Arabic"
+vim.g.gui_font_face = "FiraCode Nerd Font"
+
+vim.g.neovide_transparency = 0.99
+vim.g.neovide_floating_blur_amount_x = 2.0
+vim.g.neovide_floating_blur_amount_y = 2.0
+vim.g.neovide_scroll_animation_length = 0.1
+vim.g.neovide_cursor_trail_size = 0.5
+vim.g.neovide_cursor_vfx_mode = "pixiedust" -- torpedo, railgun 
 
 RefreshGuiFont = function()
   vim.opt.guifont = string.format("%s:h%s",vim.g.gui_font_face, vim.g.gui_font_size)
