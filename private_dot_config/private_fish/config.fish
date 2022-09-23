@@ -27,9 +27,12 @@ set -gx GODOCC_STYLE dracula
 set -gx GO111MODULE on
 set -gx DOCKER_BUILDKIT 1
 
+
 # node/npm
 set -gx NPM_PACKAGES "$HOME/.npm_packages"
 set -gx PATH $PATH $NPM_PACKAGES/bin
+set -gx PNPM_HOME "/home/daniel/.local/share/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
 if test -d $NPM_PACKAGES/share/man
     if not contains -- $NPM_PACKAGES/share/man $MANPATH
         set -gx MANPATH $NPM_PACKAGES/share/man $MANPATH
