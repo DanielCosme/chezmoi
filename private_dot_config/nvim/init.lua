@@ -17,7 +17,7 @@ local lsp_defaults = {
     ),
     -- Callback function that will be executed when a language server is attached to a buffer.
     on_attach = function(client, bufnr)
-        print("Hello lsp")
+        print("Lsp attached")
         vim.api.nvim_exec_autocmds('User', {pattern = 'LspAttached'})
     end
 }
@@ -74,6 +74,8 @@ lspconfig.gopls.setup({
 lspconfig.tsserver.setup{}
 -- Rust
 lspconfig.rls.setup{}
+-- Ruby
+lspconfig.solargraph.setup{}
 
 -- Diagnostics
 vim.diagnostic.config({
