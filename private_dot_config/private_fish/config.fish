@@ -27,6 +27,9 @@ set -gx GODOCC_STYLE dracula
 set -gx GO111MODULE on
 set -gx DOCKER_BUILDKIT 1
 
+# Ruby
+set -gx RUBY_BIN $HOME/.local/share/gem/ruby/3.0.0/bin
+set -gx PATH $PATH $RUBY_BIN
 
 # node/npm
 set -gx NPM_PACKAGES "$HOME/.npm_packages"
@@ -42,8 +45,11 @@ if test ! -d "$HOME/.npm_packages"
     mkdir "$HOME/.npm_packages"
 end
 
-## Useful aliases
+# Neovim
 alias vi='nvim'
+abbr -a lv lvim-gui
+abbr -a nv neovide --multigrid
+
 # Git
 alias glog='git log --all --graph --decorate --oneline'
 alias gb='git branch -vv'
