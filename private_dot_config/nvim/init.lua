@@ -24,8 +24,8 @@ TODO: Neovim configurations
 --]]
 
 -- Mappings
-local nnoremap = require("keymap").nnoremap
-local nmap = require("keymap").nmap
+local nnoremap = require("danicosme.keymap").nnoremap
+local nmap = require("danicosme.keymap").nmap
 -- Nerd Tree
 nmap("<C-n>", ":NvimTreeToggle<CR>")
 nmap("<leader>gn", ":NvimTreeFindFile<CR>")
