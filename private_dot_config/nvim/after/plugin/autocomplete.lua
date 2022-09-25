@@ -26,7 +26,7 @@ cmp.setup({
         fields = {'menu', 'abbr', 'kind'},
         format = function(entry, item)
             local menu_icon = {
-                nvim_lsp = 'λ',
+                nvim_lsp = 'λ(LSP)',
                 luasnip = '⋗',
                 buffer = 'Ω',
                 path = '🖫',
@@ -45,6 +45,7 @@ cmp.setup({
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-e>'] = cmp.mapping.abort(),
+-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items
         -- Jump to the next placeholder in the snippet.
         ['<C-n>'] = cmp.mapping(function(fallback)
           if luasnip.jumpable(1) then
@@ -63,20 +64,20 @@ cmp.setup({
         end, {'i', 's'}),
         -- Autocomplete with tab.
         ['<Tab>'] = cmp.mapping(function(fallback)
-          local col = vim.fn.col('.') - 1
-
           if cmp.visible() then
             cmp.select_next_item(select_opts)
-          elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-            fallback()
+          elseif luasnip.expand_or_jumplable() then
+            luasnip.expand_or_jump()
           else
-            cmp.complete()
+            fallback()
           end
         end, {'i', 's'}),
         -- If the completion menu is visible, move to the previous item.
         ['<S-Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.select_prev_item(select_opts)
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
           else
             fallback()
           end
@@ -91,3 +92,13 @@ cmp.event:on(
     'confirm_done',
     cmp_autopairs.on_confirm_done()
 )
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+})

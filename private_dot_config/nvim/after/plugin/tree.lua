@@ -1,4 +1,3 @@
-local nmap = require("danicosme.keymap").nmap
 
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
@@ -14,9 +13,7 @@ require("nvim-tree").setup({
     group_empty = true,
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
   },
 })
 
-nmap("<C-n>", ":NvimTreeToggle<CR>")
-nmap("<leader>gn", ":NvimTreeFindFile<CR>")

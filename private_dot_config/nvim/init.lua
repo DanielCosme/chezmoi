@@ -23,30 +23,24 @@ TODO: Neovim configurations
 - lua-dev --> later on when I want to understand neovim better
 --]]
 
--- Local configuration to share among all the servers
-local lsp_defaults = {
-    flags = {
-        -- Amount of miliseconds neovim will wait to send the next document update notification.
-        debounce_text_changes = 150,
-    },
-    -- The data on this option is send to the server, to announce what features the editor can support.
-    capabilities = require('cmp_nvim_lsp').update_capabilities(
-        vim.lsp.protocol.make_client_capabilities()
-    ),
-    -- Callback function that will be executed when a language server is attached to a buffer.
-    on_attach = function(client, bufnr)
-        print("Lsp attached")
-        vim.api.nvim_exec_autocmds('User', {pattern = 'LspAttached'})
-    end
-}
+-- Mappings
+local nnoremap = require("keymap").nnoremap
+local nmap = require("keymap").nmap
+-- Nerd Tree
+nmap("<C-n>", ":NvimTreeToggle<CR>")
+nmap("<leader>gn", ":NvimTreeFindFile<CR>")
+-- Telescope
+nnoremap("<leader>ff", "<cmd>Telescope find_files<cr>")
+nnoremap("<leader>fa", "<cmd>Telescope live_grep<cr>")
+nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
+nnoremap("<leader>fs","<cmd>Telescope lsp_workspace_symbols query=.<cr>")
+nnoremap("<leader>cc","<cmd>Telescope commands<cr>")
+nnoremap("gr", "<cmd>Telescope lsp_references<cr>")
+nnoremap("gi", "<cmd>Telescope lsp_implementations<cr>")
+nnoremap("gt", "<cmd>Telescope lsp_type_definitions<cr>")
+nnoremap('<C-]>', "<cmd>Telescope lsp_definitions<cr>")
 
-local lspconfig = require('lspconfig')
-lspconfig.util.default_config = vim.tbl_deep_extend(
-    'force',
-    lspconfig.util.default_config,
-    lsp_defaults
-)
-
+-----  Language Server Protocol Keybindings ----
 -- Auto command for keybindings
 vim.api.nvim_create_autocmd('User', {
     pattern = 'LspAttached',
@@ -79,169 +73,3 @@ vim.api.nvim_create_autocmd('User', {
     bufmap('x', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
     end
 })
-
--- LSP language servers config
--- Go
-lspconfig.gopls.setup({
-    -- If I want to override defaults
-    -- on_attach = function(client, bufnr)
-    --     lspconfig.util.default_config.on_attach(client, bufnr)
-    -- end
-})
--- JS && TS
-lspconfig.tsserver.setup{}
--- Rust
-lspconfig.rls.setup{}
--- Ruby
-lspconfig.rls.setup{}
-
--- Diagnostics
-vim.diagnostic.config({
-  virtual_text = false,
-  severity_sort = true,
-  float = {
-    border = 'rounded',
-    source = 'always',
-    header = '',
-    prefix = '',
-  },
-})
-
-
--- Lsp windows with borders
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-  vim.lsp.handlers.hover,
-  {border = 'rounded'}
-)
-
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-  vim.lsp.handlers.signature_help,
-  {border = 'rounded'}
-)
-
--- Status line
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
-    ignore_focus = {},
-    always_divide_middle = true,
-    globalstatus = false,
-    refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
-    }
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {{'filename', path = 1}},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  winbar = {},
-  tabline = {
-      lualine_a = {'buffers'},
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = {'tabs'}
-  },
-  inactive_winbar = {},
-  extensions = {}
-}
-
--- Conext
-require'treesitter-context'.setup{
-    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-    max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-    trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-    min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
-    patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-        -- For all filetypes
-        -- Note that setting an entry here replaces all other patterns for this entry.
-        -- By setting the 'default' entry below, you can control which nodes you want to
-        -- appear in the context window.
-        default = {
-            'class',
-            'function',
-            'method',
-            'for',
-            'while',
-            'if',
-            'switch',
-            'case',
-        },
-        -- Patterns for specific filetypes
-        -- If a pattern is missing, *open a PR* so everyone can benefit.
-        tex = {
-            'chapter',
-            'section',
-            'subsection',
-            'subsubsection',
-        },
-        rust = {
-            'impl_item',
-            'struct',
-            'enum',
-        },
-        scala = {
-            'object_definition',
-        },
-        vhdl = {
-            'process_statement',
-            'architecture_body',
-            'entity_declaration',
-        },
-        markdown = {
-            'section',
-        },
-        elixir = {
-            'anonymous_function',
-            'arguments',
-            'block',
-            'do_block',
-            'list',
-            'map',
-            'tuple',
-            'quoted_content',
-        },
-        json = {
-            'pair',
-        },
-        yaml = {
-            'block_mapping_pair',
-        },
-    },
-    exact_patterns = {
-        -- Example for a specific filetype with Lua patterns
-        -- Treat patterns.rust as a Lua pattern (i.e "^impl_item$" will
-        -- exactly match "impl_item" only)
-        -- rust = true,
-    },
-
-    -- [!] The options below are exposed but shouldn't require your attention,
-    --     you can safely ignore them.
-
-    zindex = 20, -- The Z-index of the context window
-    mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
-    -- Separator between context and content. Should be a single character string, like '-'.
-    -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-    separator = nil,
-}
-
