@@ -20,3 +20,8 @@ require('onedark').setup {
 -- vim.cmd("colorscheme everblush")
 -- vim.cmd("colorscheme nordfox") -- nightfox, carbonfox, terafox, nordfox, duskfox, dawnfox, dayfox
 vim.cmd("colorscheme carbonfox") -- nightfox, carbonfox, terafox, nordfox, duskfox, dawnfox, dayfox
+
+
+require('rose-pine').setup({
+    dark_variant = 'moon' -- main, moon
+})

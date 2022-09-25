@@ -17,6 +17,14 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/nvim-cmp'
+    -- Comments
+    use {
+        'folke/todo-comments.nvim',
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup()
+        end
+    }
     -- Autopairs
     use {
         "windwp/nvim-autopairs",
@@ -29,6 +37,14 @@ return require('packer').startup(function()
     use "EdenEast/nightfox.nvim"
     use { 'Everblush/everblush.nvim', as = 'everblush' }
     use 'navarasu/onedark.nvim'
+    use 'sainnhe/everforest'
+    use 'shaunsingh/moonlight.nvim'
+    use 'olivercederborg/poimandres.nvim'
+    use 'Mofiqul/dracula.nvim'
+    use {
+        'rose-pine/neovim',
+        as = 'rose-pine',
+    }
     -- Finder
     use {'nvim-treesitter/nvim-treesitter', 
         run = ':TSUpdate'
