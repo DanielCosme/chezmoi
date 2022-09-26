@@ -19,21 +19,25 @@ cmp.setup({
         {name = 'luasnip', keyword_length = 2}, -- shows available snippets and expands them if they are chosen
     },
     window = {
-        -- completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered()
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+        window = {
+            completion = {
+                  winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+              col_offset = -3,
+              side_padding = 2,
+            },
+        },
     },
     formatting = {
-        fields = {'menu', 'abbr', 'kind'},
-        format = function(entry, item)
-            local menu_icon = {
-                nvim_lsp = 'λ(LSP)',
-                luasnip = '⋗',
-                buffer = 'Ω',
-                path = '🖫',
-            }
-
-            item.menu = menu_icon[entry.source.name]
-            return item
+        fields = {"kind", "abbr", "menu"},
+        format = function(entry, vim_item)
+             local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+             local strings = vim.split(kind.kind, "%s", { trimempty = true })
+             kind.kind = " " .. strings[1] .. " "
+             kind.menu = "    (" .. strings[2] .. ")"
+            
+             return kind
         end
     },
     mapping = {
@@ -42,46 +46,36 @@ cmp.setup({
         ['<Down>'] = cmp.mapping.select_next_item(select_opts),
         ['<C-k>'] = cmp.mapping.select_prev_item(select_opts),
         ['<C-j>'] = cmp.mapping.select_next_item(select_opts),
+        ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
+        ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-e>'] = cmp.mapping.abort(),
--- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items
-        -- Jump to the next placeholder in the snippet.
-        ['<C-n>'] = cmp.mapping(function(fallback)
-          if luasnip.jumpable(1) then
-            luasnip.jump(1)
-          else
-            fallback()
-          end
-        end, {'i', 's'}),
-        -- Jump to the previous placeholder in the snippet.
-        ['<C-p>'] = cmp.mapping(function(fallback)
-          if luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, {'i', 's'}),
-        -- Autocomplete with tab.
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.select_next_item(select_opts)
-          elseif luasnip.expand_or_jumplable() then
-            luasnip.expand_or_jump()
+            if not cmp.get_selected_entry() then
+                cmp.select_next_item({behavior = cmp.SelectBehavior.Select})
+                cmp.confirm()
+            else 
+                cmp.confirm()
+            end
           else
             fallback()
           end
-        end, {'i', 's'}),
+        end, {'i', 's', 'c'}),
         -- If the completion menu is visible, move to the previous item.
         ['<S-Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
+            if not cmp.get_selected_entry() then
+                cmp.select_next_item({behavior = cmp.SelectBehavior.Select})
+                cmp.confirm()
+            else 
+                cmp.confirm()
+            end
           else
             fallback()
           end
-        end, {'i', 's'}),
+        end, {'i', 's', 'c'}),
     }
 })
 

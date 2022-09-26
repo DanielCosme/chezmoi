@@ -27,3 +27,7 @@ vim.cmd("colorscheme carbonfox") -- nightfox, carbonfox, terafox, nordfox, duskf
 require('rose-pine').setup({
     dark_variant = 'moon' -- main, moon
 })
+
+-- Available values: 'hard', 'medium'(default), 'soft'
+vim.g.everforest_background = 'soft'
+vim.g.everforest_better_performance = 1

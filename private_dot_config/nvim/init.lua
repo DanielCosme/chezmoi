@@ -1,12 +1,11 @@
 -- Personal
-require("danicosme")
 require("danicosme.set")
 require("danicosme.remap")
 require("danicosme.packer")
 require("danicosme.auto")
 
 --[[
-TODO: Neovim configurations
+TODO: Neovim IDE configurations
 - Telescope configure to my liking
 - Treesitter configure properly
 - Gitsigns configure properly
@@ -15,10 +14,15 @@ TODO: Neovim configurations
 - nvim-autopairs, configure properly
 - luasnip, configure properly
 
+- Mason
+    - lsp install
+    - linters and formatters
+    - dap
+
+- null-ls, install and configure
 - which-key, install and configure
 - bufferline, install and configure
 - comment, install and configure
-
 
 - lua-dev --> later on when I want to understand neovim better
 --]]
@@ -73,3 +77,7 @@ vim.api.nvim_create_autocmd('User', {
     bufmap('x', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
     end
 })
+
+vim.g.go_highlight_structs = 0
+vim.g.go_highlight_interfaces = 0
+vim.g.go_highlight_operators = 0

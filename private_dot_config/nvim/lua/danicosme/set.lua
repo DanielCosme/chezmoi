@@ -37,7 +37,7 @@ set.undofile = true
 set.smartcase = true
 set.ignorecase = true
 -- give more space for displaying messages.
-set.cmdheight=2
+set.cmdheight=1
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
 set.updatetime = 300
 -- Don't pass messages to |ins-completion-menu|.
@@ -51,7 +51,7 @@ set.signcolumn = "yes"
 set.shell = "sh"
 set.wrap = false
 set.termguicolors = true
-set.colorcolumn = "80"
+set.colorcolumn = "100"
 set.fileencoding = "utf-8"
 set.mouse = "a"
 set.pumheight = 10

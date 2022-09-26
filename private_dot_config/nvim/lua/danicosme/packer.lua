@@ -9,14 +9,25 @@ end
 return require('packer').startup(function()
     -- Packer can manage itself
 	use 'wbthomason/packer.nvim'
-    -- Lsp & autocomplete
+    -- Terminal
+	use {
+        'akinsho/toggleterm.nvim',
+        tag = '*',
+    }
+    -- LSP and external packages like DAP (debug adapter protocol)
     use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+    use 'williamboman/mason-lspconfig.nvim' -- makes it easier to use lspconfig with mason.nvim 
+    use 'mfussenegger/nvim-dap' -- basic debugger
+    use 'jose-elias-alvarez/null-ls.nvim' -- linters and formatters with LSP functions
+    use 'williamboman/mason.nvim'
+    -- Autocompletion and snippets engine
     use 'L3MON4D3/LuaSnip'
     use "rafamadriz/friendly-snippets"
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/nvim-cmp'
+    use 'onsails/lspkind.nvim' -- vscode-like icons
     -- Comments
     use {
         'folke/todo-comments.nvim',

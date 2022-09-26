@@ -24,12 +24,12 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
 
 -- LSP language servers config
 -- Go
-lspconfig.gopls.setup({
+lspconfig.gopls.setup{
     -- If I want to override defaults
     -- on_attach = function(client, bufnr)
     --     lspconfig.util.default_config.on_attach(client, bufnr)
     -- end
-})
+}
 -- JS && TS
 lspconfig.tsserver.setup{}
 -- Rust
@@ -38,7 +38,7 @@ lspconfig.rls.setup{}
 lspconfig.rls.setup{}
 
 -- Diagnostics
-vim.diagnostic.config({
+vim.diagnostic.config{
   virtual_text = false,
   severity_sort = true,
   float = {
@@ -47,7 +47,7 @@ vim.diagnostic.config({
     header = '',
     prefix = '',
   },
-})
+}
 
 
 -- Lsp windows with borders
