@@ -52,6 +52,7 @@ return require('packer').startup(function()
     use 'shaunsingh/moonlight.nvim'
     use 'olivercederborg/poimandres.nvim'
     use 'Mofiqul/dracula.nvim'
+    use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
     use {
         'rose-pine/neovim',
         as = 'rose-pine',

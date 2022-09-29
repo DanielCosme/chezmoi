@@ -31,3 +31,6 @@ require('rose-pine').setup({
 -- Available values: 'hard', 'medium'(default), 'soft'
 vim.g.everforest_background = 'soft'
 vim.g.everforest_better_performance = 1
+
+-- oxocarbon
+-- vim.cmd("colorscheme oxocarbon")
