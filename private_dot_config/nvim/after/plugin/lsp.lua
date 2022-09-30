@@ -35,7 +35,7 @@ lspconfig.tsserver.setup{}
 -- Rust
 lspconfig.rls.setup{}
 -- Ruby
-lspconfig.rls.setup{}
+lspconfig.solargraph.setup{}
 
 -- Diagnostics
 vim.diagnostic.config{
@@ -60,3 +60,10 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
   vim.lsp.handlers.signature_help,
   {border = 'rounded'}
 )
+
+-- Trouble
+require("trouble").setup {
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  -- refer to the configuration section below
+}

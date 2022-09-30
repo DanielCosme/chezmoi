@@ -44,7 +44,14 @@ nnoremap("gi", "<cmd>Telescope lsp_implementations<cr>")
 nnoremap("gt", "<cmd>Telescope lsp_type_definitions<cr>")
 nnoremap('<C-]>', "<cmd>Telescope lsp_definitions<cr>")
 
------  Language Server Protocol Keybindings ----
+-- nnoremap("<leader>tx ", "<cmd>TroubleToggle<cr>")
+-- nnoremap("<leader>xw ", "<cmd>TroubleToggle workspace_diagnostics<cr>")
+-- nnoremap("leader>xd ", "<cmd>TroubleToggle document_diagnostics<cr>")
+-- nnoremap("<leader>xq ", "<cmd>TroubleToggle quickfix<cr>")
+-- nnoremap("<leader>xl", "<cmd>TroubleToggle loclist<cr>")
+-- nnoremap ("gR", "<cmd>TroubleToggle lsp_references<cr>")
+
+--  Language Server Protocol Keybindings ----
 -- Auto command for keybindings
 vim.api.nvim_create_autocmd('User', {
     pattern = 'LspAttached',
@@ -81,3 +88,5 @@ vim.api.nvim_create_autocmd('User', {
 vim.g.go_highlight_structs = 0
 vim.g.go_highlight_interfaces = 0
 vim.g.go_highlight_operators = 0
+
+require("todo-comments").setup {}

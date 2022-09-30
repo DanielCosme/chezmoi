@@ -20,6 +20,10 @@ return require('packer').startup(function()
     use 'mfussenegger/nvim-dap' -- basic debugger
     use 'jose-elias-alvarez/null-ls.nvim' -- linters and formatters with LSP functions
     use 'williamboman/mason.nvim'
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+    }
     -- Autocompletion and snippets engine
     use 'L3MON4D3/LuaSnip'
     use "rafamadriz/friendly-snippets"
@@ -32,9 +36,6 @@ return require('packer').startup(function()
     use {
         'folke/todo-comments.nvim',
         requires = "nvim-lua/plenary.nvim",
-        config = function()
-            require("todo-comments").setup()
-        end
     }
     -- Autopairs
     use {
@@ -66,6 +67,7 @@ return require('packer').startup(function()
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+
     -- Other
     use 'nvim-lua/plenary.nvim'
     -- Nvim Tree
