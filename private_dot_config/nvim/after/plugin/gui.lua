@@ -1,8 +1,11 @@
 -- vim.opt.guifont = { "Source Code Pro", ":h12" }
 
-vim.g.gui_font_default_size = 11
 vim.g.gui_font_size = vim.g.gui_font_default_size
-vim.g.gui_font_face = "FiraCode Nerd Font"
+-- vim.g.gui_font_face = "FiraCode Nerd Font"
+-- vim.g.gui_font_default_size = 11
+
+vim.g.gui_font_face = "InconsolataGo_Nerd_Font"
+vim.g.gui_font_default_size = 13
 
 vim.g.neovide_transparency = 0.99
 vim.g.neovide_floating_blur_amount_x = 2.0

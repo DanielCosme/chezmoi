@@ -33,4 +33,7 @@ vim.g.everforest_background = 'soft'
 vim.g.everforest_better_performance = 1
 
 -- oxocarbon
--- vim.cmd("colorscheme oxocarbon")
+-- vim.cmd.colorscheme 'oxocarbon-lua' -- neovim 0.8+ syntax
+vim.g.oxocarbon_lua_keep_terminal = true
+vim.g.oxocarbon_lua_transparent = true
+vim.g.oxocarbon_lua_alternative_telescope = true
