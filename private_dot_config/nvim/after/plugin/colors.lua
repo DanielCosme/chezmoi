@@ -20,8 +20,8 @@ require('onedark').setup {
 -- vim.cmd("colorscheme everblush")
 
 -- Nordfox
--- vim.cmd("colorscheme nordfox") -- nightfox, carbonfox, terafox, nordfox, duskfox, dawnfox, dayfox
-vim.cmd("colorscheme carbonfox") -- nightfox, carbonfox, terafox, nordfox, duskfox, dawnfox, dayfox
+vim.cmd("colorscheme nordfox") -- nightfox, carbonfox, terafox, nordfox, duskfox, dawnfox, dayfox
+-- vim.cmd("colorscheme carbonfox") -- nightfox, carbonfox, terafox, nordfox, duskfox, dawnfox, dayfox
 
 -- Rose pine
 require('rose-pine').setup({
