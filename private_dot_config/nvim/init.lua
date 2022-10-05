@@ -27,6 +27,10 @@ TODO: Neovim IDE configurations
 - lua-dev --> later on when I want to understand neovim better
 --]]
 
+-- Disable netrw to avoid race conditions with nvim-tree
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Mappings
 local nnoremap = require("danicosme.keymap").nnoremap
 local nmap = require("danicosme.keymap").nmap
