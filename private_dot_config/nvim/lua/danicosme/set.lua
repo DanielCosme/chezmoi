@@ -47,7 +47,7 @@ set.hlsearch = true
 -- Display all matching files when we tab complete in command mode
 set.wildmenu = true
 set.wildmode = "list:full"
-set.signcolumn = "yes"
+set.signcolumn = "auto:2"
 set.shell = "sh"
 set.wrap = false
 set.termguicolors = true
