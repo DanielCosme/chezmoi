@@ -23,6 +23,7 @@ set -gx SSH_TTY dummy # to show hostname on remote machines
 set -gx GOPATH $HOME/go
 set -gx GOBIN $HOME/go/bin
 set -gx PATH $PATH $GOBIN
+set -gx PATH $PATH /usr/local/go/bin
 set -gx GODOCC_STYLE dracula
 set -gx GO111MODULE on
 set -gx DOCKER_BUILDKIT 1
@@ -31,10 +32,14 @@ set -gx DOCKER_BUILDKIT 1
 set -gx RUBY_BIN $HOME/.local/share/gem/ruby/3.0.0/bin
 set -gx PATH $PATH $RUBY_BIN
 
+# Rust
+set -gx CARGO_BIN $HOME/.cargo/bin
+set -gx PATH $PATH $CARGO_BIN
+
 # node/npm
 set -gx NPM_PACKAGES "$HOME/.npm_packages"
 set -gx PATH $PATH $NPM_PACKAGES/bin
-set -gx PNPM_HOME "/home/daniel/.local/share/pnpm"
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 set -gx PATH "$PNPM_HOME" $PATH
 if test -d $NPM_PACKAGES/share/man
     if not contains -- $NPM_PACKAGES/share/man $MANPATH

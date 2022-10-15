@@ -5,7 +5,7 @@ local lsp_defaults = {
         debounce_text_changes = 150,
     },
     -- The data on this option is send to the server, to announce what features the editor can support.
-    capabilities = require('cmp_nvim_lsp').update_capabilities(
+    capabilities = require('cmp_nvim_lsp').default_capabilities(
         vim.lsp.protocol.make_client_capabilities()
     ),
     -- Callback function that will be executed when a language server is attached to a buffer.
