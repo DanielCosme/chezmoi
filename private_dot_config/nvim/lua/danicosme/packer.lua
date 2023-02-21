@@ -81,6 +81,7 @@ return require('packer').startup(function()
     }
     -- Git
     use 'lewis6991/gitsigns.nvim'
+    use 'f-person/git-blame.nvim'
     -- Status line
     use {
       'nvim-lualine/lualine.nvim',

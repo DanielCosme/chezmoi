@@ -86,7 +86,7 @@ alias la='exa -a --color=always --group-directories-first --icons'  # all files 
 alias ll='exa -l --color=always --group-directories-first --icons'  # long format
 alias lla='exa -la --color=always --group-directories-first --icons'  # long format
 abbr -a lt exa -aT --color=always --group-directories-first --icons --level $argv # tree listing
-alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
+alias l.="exa -a | grep -E '^\.'"                                     # show only dotfiles
 
 alias bat='bat --style header --style rules --style snip --style changes --style header'
 alias grep='grep --color=auto'

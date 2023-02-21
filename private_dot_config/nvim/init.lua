@@ -92,5 +92,6 @@ vim.api.nvim_create_autocmd('User', {
 vim.g.go_highlight_structs = 0
 vim.g.go_highlight_interfaces = 0
 vim.g.go_highlight_operators = 0
+vim.g.gitblame_enabled = 0
 
 require("todo-comments").setup {}
