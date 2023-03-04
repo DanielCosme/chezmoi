@@ -169,6 +169,8 @@ require('lazy').setup({
     config = function()
       require("trouble").setup {}
     end
-  }
+  },
+
+  'nvim-tree/nvim-web-devicons'
 
 }, {})
