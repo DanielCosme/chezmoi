@@ -16,7 +16,8 @@ require('nvim-treesitter.configs').setup {
     'html',
     'css',
     'javascript',
-    'ruby'
+    'ruby',
+    'sql'
   },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
