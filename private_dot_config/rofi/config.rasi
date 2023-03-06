@@ -2,6 +2,8 @@ configuration {
 	display-windowcd: "";
 	windowcd-display-format: "{icon} {name}";
 	modi: "windowcd,window";
+	window-match-fields: "class";
+	/*sort: "true";*/
 	font: "mono 16";
 	show-icons: true;
 	combi-modi: "windowcd";
