@@ -12,6 +12,8 @@ vim.diagnostic.config {
 
 require("zen-mode").setup {
   window = {
+    backdrop = 1,
+    width = 120,
     options = {
       signcolumn = "no", -- disable signcolumn
       number = false, -- disable number column
@@ -21,7 +23,13 @@ require("zen-mode").setup {
       -- foldcolumn = "0", -- disable fold column
       list = false, -- disable whitespace characters
     },
-  },
+  }  
+  -- callback where you can add custom code when the Zen window opens
+  -- on_open = function(win)
+  -- end,
+  -- -- callback where you can add custom code when the Zen window closes
+  -- on_close = function()
+  -- end,
 }
 
-vim.keymap.set('n', '<leader>z', ":ZenMode <CR>", { desc = '[F]ind [F]iles' })
+vim.keymap.set('n', '<leader>z', ":ZenMode <CR>", { desc = 'Enter Zen mode' })
