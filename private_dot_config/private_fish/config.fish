@@ -28,10 +28,6 @@ set -gx GODOCC_STYLE dracula
 set -gx GO111MODULE on
 set -gx DOCKER_BUILDKIT 1
 
-# Ruby
-set -gx RUBY_BIN $HOME/.local/share/gem/ruby/3.0.0/bin
-set -gx PATH $PATH $RUBY_BIN
-
 # Rust
 set -gx CARGO_BIN $HOME/.cargo/bin
 set -gx PATH $PATH $CARGO_BIN
