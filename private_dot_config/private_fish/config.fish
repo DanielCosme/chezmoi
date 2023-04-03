@@ -16,7 +16,7 @@ set -gx TERMINAL alacritty
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_USER_CONFIG_DIR $XDG_CONFIG_HOME
 # set -gx XDG_DATA_HOME $HOME/.local
-set -gx PAGER most
+set -gx PAGER bat
 set -gx SSH_TTY dummy # to show hostname on remote machines
 
 # Golang
@@ -84,7 +84,7 @@ alias lla='exa -la --color=always --group-directories-first --icons'  # long for
 abbr -a lt exa -aT --color=always --group-directories-first --icons --level $argv # tree listing
 alias l.="exa -a | grep -E '^\.'"                                     # show only dotfiles
 
-alias bat='bat --style header --style rules --style snip --style changes --style header'
+alias bat='bat'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
