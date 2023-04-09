@@ -71,9 +71,7 @@ abbr -a gst git stash
 
 # alias ruby='/usr/local/opt/ruby/bin/ruby'
 
-abbr -a chcd chezmoi cd
-abbr -a chapply chezmoi -v apply
-abbr -a chedit chezmoi edit $argv
+abbr -a ch chezmoi
 abbr -a reload exec fish
 
 # Replace ls with exa
