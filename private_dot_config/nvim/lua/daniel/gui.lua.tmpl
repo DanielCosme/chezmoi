@@ -12,9 +12,9 @@ if vim.g.neovide then
   vim.g.gui_font_default_size = 11
 
 {{- if eq .chezmoi.os "darwin"}}
-vim.g.neovide_transparency = 1
+  vim.g.neovide_transparency = 1
 {{else}}
-vim.g.neovide_transparency = 0.90
+  vim.g.neovide_transparency = 0.90
 {{end}}
 
   vim.g.neovide_hide_mouse_when_typing = true

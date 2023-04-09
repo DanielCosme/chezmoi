@@ -5,4 +5,9 @@
 	defaultBranch = main
 [credential "https://github.com"]
 	helper =
-	helper = !{{ .ghpath }} auth git-credential
+{{if eq .chezmoi.os "darwin"}}
+	helper = !/opt/homebrew/bin/gh auth git-credential
+{{else}}
+	helper = !/usr/bin/gh auth git-credential
+{{end}}
+
