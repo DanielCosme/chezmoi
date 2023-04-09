@@ -12,7 +12,7 @@ map cmd+equal change_font_size  all +1.0
 map cmd+minus change_font_size  all -1.0
 map cmd+0 change_font_size      all 0
 
-{{- if eq .chezmoi.os "darwin"}}
+{{if eq .chezmoi.os "darwin"}}
 background_opacity              1
 {{else}}
 background_opacity              0.90
