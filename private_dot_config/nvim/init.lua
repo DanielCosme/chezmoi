@@ -23,7 +23,7 @@ require("zen-mode").setup {
       -- foldcolumn = "0", -- disable fold column
       list = false, -- disable whitespace characters
     },
-  }  
+  }
   -- callback where you can add custom code when the Zen window opens
   -- on_open = function(win)
   -- end,

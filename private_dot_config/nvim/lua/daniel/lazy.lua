@@ -19,7 +19,13 @@ require('lazy').setup({
 
   -- Git related plugins
   'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+  'f-person/git-blame.nvim',
+  {
+    'tpope/vim-rhubarb',
+    init = function()
+      vim.g.gitblame_enabled = 0
+    end,
+  },
 
   -- Testing
   'theprimeagen/harpoon',
@@ -58,7 +64,6 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',  opts = {} },
-  'f-person/git-blame.nvim',
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
