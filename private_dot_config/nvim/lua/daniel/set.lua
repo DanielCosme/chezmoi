@@ -11,6 +11,7 @@ vim.opt.hlsearch = true -- Set highlight on search
 vim.opt.incsearch = true
 
 vim.opt.number = true -- Make line numbers default
+vim.opt.relativenumber = true
 
 -- Enable mouse mode
 vim.opt.mouse = 'a'
