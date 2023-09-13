@@ -14,7 +14,7 @@ let mapleader=" "
 set NERDTree
 set surround
 set number
-set norelativenumber
+set relativenumber
 
 """""""" Map IDE actions to IdeaVim ---
 sethandler <c-j> a:vim
@@ -41,13 +41,17 @@ nmap <leader>t :action GotoClass<cr>
 " search symbol
 nmap <leader>s :action GotoSymbol<cr>
 " search actions
-nmap <leader>a :action GotoAction<cr>
+nmap <leader>i :action GotoAction<cr>
+" search text
+nmap <leader>a :action GotoText<cr>
 
 " nmap <leader>fs :action FileStructurePopup<cr>
 " nmap <leader>fs :action ActivateStructureToolWindow<cr>
 nmap <leader>e :action ShowErrorDescription<cr>
 nmap <leader>lb :action ShowBookmarks<cr>
 nmap <leader>b :action Bookmarks<cr>
+nnoremap <leader>m :action MoveEditorToOppositeTabGroup<cr>
+
 
 " nmap <leader>a :action Switcher<cr>
 " nmap <leader>a :action RecentChangedFiles<cr>
@@ -99,6 +103,7 @@ nmap ,b :action ToggleLineBreakpoint<cr>
 
 """""" Plugin settings ----------------
 nnoremap <C-N> :NERDTree <CR> 
+nnoremap <leader>gn :NERDTreeFind <CR> 
 
 " key bindings for quickly moving between windows
 " h left, l right, k up, j down
