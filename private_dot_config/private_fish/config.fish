@@ -32,6 +32,12 @@ set -gx DOCKER_BUILDKIT 1
 set -gx CARGO_BIN $HOME/.cargo/bin
 set -gx PATH $PATH $CARGO_BIN
 
+# Ruby
+if command -q gem
+    set -gx GEM_HOME $(gem env user_gemhome)
+    set -gx PATH $PATH "$GEM_HOME/bin"
+end
+
 # node/npm
 set -gx NPM_PACKAGES "$HOME/.npm_packages"
 set -gx PATH $PATH $NPM_PACKAGES/bin
@@ -68,8 +74,6 @@ abbr -a gds git diff --staged
 abbr -a gfc git findcommit
 abbr -a gfm git findmessage
 abbr -a gst git stash
-
-# alias ruby='/usr/local/opt/ruby/bin/ruby'
 
 abbr -a ch chezmoi
 abbr -a reload exec fish
