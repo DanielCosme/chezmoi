@@ -34,7 +34,7 @@ set -gx PATH $PATH $CARGO_BIN
 
 # Ruby
 if command -q gem
-    set -gx GEM_HOME $(gem env user_gemhome)
+    set -gx GEM_HOME $(gem env gemhome)
     set -gx PATH $PATH "$GEM_HOME/bin"
 end
 
