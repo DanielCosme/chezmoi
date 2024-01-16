@@ -55,7 +55,7 @@ end
 # Neovim
 alias vi='nvim'
 abbr -a lv lvim-gui
-abbr -a nv neovide --multigrid
+abbr -a nv neovide .
 
 # Git
 alias glog='git log --all --graph --decorate --oneline'
