@@ -38,6 +38,13 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnos
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 
+-- err != nil snippet for Go.
+vim.keymap.set(
+  'n',
+  '<leader>n',
+  "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
+)
+
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
