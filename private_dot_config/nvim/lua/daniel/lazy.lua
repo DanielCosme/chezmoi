@@ -174,7 +174,7 @@ require('lazy').setup({
   'nvim-tree/nvim-web-devicons',
   'folke/zen-mode.nvim',
 
-  'Shatur/neovim-ayu',
+  'rebelot/kanagawa.nvim',
   'sainnhe/everforest',
   'sainnhe/edge',
   'sainnhe/gruvbox-material',

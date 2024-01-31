@@ -33,3 +33,5 @@ require("zen-mode").setup {
 }
 
 vim.keymap.set('n', '<leader>z', ":ZenMode <CR>", { desc = 'Enter Zen mode' })
+
+vim.g.everforest_background = 'hard'
