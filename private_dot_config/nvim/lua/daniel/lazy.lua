@@ -96,8 +96,6 @@ require('lazy').setup({
     end,
   },
 
-  'ray-x/starry.nvim', -- A bunch of colors.
-
   -- Set lualine as statusline
   'nvim-lualine/lualine.nvim',
 
