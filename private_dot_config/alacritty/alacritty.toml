@@ -1,6 +1,3 @@
-dynamic_title = true
-live_config_reload = true
-
 [colors.bright]
 black = "0x585858"
 blue = "0x7cafc2"
